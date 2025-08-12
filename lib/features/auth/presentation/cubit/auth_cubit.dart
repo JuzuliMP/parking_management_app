@@ -13,11 +13,10 @@ class AuthCubit extends Cubit<AuthState> {
 
   Future<void> login(String mobileNumber, String password) async {
     emit(AuthLoading());
-    
-    final result = await loginUseCase(LoginParams(
-      mobileNumber: mobileNumber,
-      password: password,
-    ));
+
+    final result = await loginUseCase(
+      LoginParams(mobileNumber: mobileNumber, password: password),
+    );
 
     result.fold(
       (failure) {

@@ -46,7 +46,7 @@ class CustomTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    
+
     return TextFormField(
       controller: controller,
       keyboardType: keyboardType,
@@ -70,10 +70,9 @@ class CustomTextField extends StatelessWidget {
         hintText: hintText,
         prefixIcon: prefixIcon,
         suffixIcon: suffixIcon,
-        contentPadding: contentPadding ?? const EdgeInsets.symmetric(
-          horizontal: 16,
-          vertical: 16,
-        ),
+        contentPadding:
+            contentPadding ??
+            const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8),
           borderSide: BorderSide(color: theme.dividerColor),
@@ -99,17 +98,16 @@ class CustomTextField extends StatelessWidget {
           borderSide: BorderSide(color: theme.disabledColor),
         ),
         filled: true,
-        fillColor: enabled ? theme.colorScheme.surface : theme.disabledColor.withOpacity(0.1),
+        fillColor: enabled
+            ? theme.colorScheme.surface
+            : theme.disabledColor.withValues(alpha: 0.1),
         labelStyle: TextStyle(
-          color: enabled ? theme.textTheme.bodyMedium?.color : theme.disabledColor,
+          color: enabled
+              ? theme.textTheme.bodyMedium?.color
+              : theme.disabledColor,
         ),
-        hintStyle: TextStyle(
-          color: theme.hintColor,
-        ),
-        errorStyle: TextStyle(
-          color: theme.colorScheme.error,
-          fontSize: 12,
-        ),
+        hintStyle: TextStyle(color: theme.hintColor),
+        errorStyle: TextStyle(color: theme.colorScheme.error, fontSize: 12),
       ),
     );
   }
@@ -143,21 +141,25 @@ class CustomSearchField extends StatelessWidget {
         hintText: hint,
         hintStyle: Theme.of(context).textTheme.bodyLarge,
         prefixIcon: const Icon(Icons.search_rounded),
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(30.0),
-        ),
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(30.0)),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(30.0),
           borderSide: BorderSide(
             color: Theme.of(context).colorScheme.primary,
-            width: 1.0,),),
+            width: 1.0,
+          ),
+        ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(30.0),
           borderSide: BorderSide(
-            color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.2),
-            width: 1.0,),),
-        contentPadding: const EdgeInsets.all(16),
+            color: Theme.of(
+              context,
+            ).colorScheme.onSurface.withValues(alpha: 0.2),
+            width: 1.0,
+          ),
         ),
+        contentPadding: const EdgeInsets.all(16),
+      ),
     );
   }
 }

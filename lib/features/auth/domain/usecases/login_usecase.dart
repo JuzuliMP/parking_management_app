@@ -19,10 +19,7 @@ class LoginParams extends Equatable {
   final String mobileNumber;
   final String password;
 
-  const LoginParams({
-    required this.mobileNumber,
-    required this.password,
-  });
+  const LoginParams({required this.mobileNumber, required this.password});
 
   @override
   List<Object> get props => [mobileNumber, password];

@@ -5,17 +5,12 @@ class LoadingWidget extends StatelessWidget {
   final double size;
   final Color? color;
 
-  const LoadingWidget({
-    super.key,
-    this.message,
-    this.size = 40,
-    this.color,
-  });
+  const LoadingWidget({super.key, this.message, this.size = 40, this.color});
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    
+
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -35,7 +30,9 @@ class LoadingWidget extends StatelessWidget {
             Text(
               message!,
               style: theme.textTheme.bodyMedium?.copyWith(
-                color: theme.textTheme.bodyMedium?.color?.withOpacity(0.7),
+                color: theme.textTheme.bodyMedium?.color?.withValues(
+                  alpha: 0.7,
+                ),
               ),
               textAlign: TextAlign.center,
             ),
@@ -65,7 +62,7 @@ class LoadingOverlay extends StatelessWidget {
         child,
         if (isLoading)
           Container(
-            color: Colors.black.withOpacity(0.3),
+            color: Colors.black.withValues(alpha: 0.3),
             child: LoadingWidget(message: message),
           ),
       ],
