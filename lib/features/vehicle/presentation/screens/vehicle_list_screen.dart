@@ -75,15 +75,15 @@ class _VehicleListScreenState extends State<VehicleListScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Vehicles'),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.logout),
-            onPressed: () {
-              // TODO: Implement logout
-              context.go(AppRouter.login);
-            },
-          ),
-        ],
+        // actions: [
+        //   IconButton(
+        //     icon: const Icon(Icons.logout),
+        //     onPressed: () {
+        //       // TODO: Implement logout
+        //       context.go(AppRouter.login);
+        //     },
+        //   ),
+        // ],
       ),
       body: BlocListener<VehicleCubit, VehicleState>(
         listener: _vehicleStateListener,
